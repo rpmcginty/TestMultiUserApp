@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MultiUserApp.Models
 {
-    class Horse
+    public class Horse
     {
         public string ID { get; set; }
 
@@ -15,6 +15,8 @@ namespace MultiUserApp.Models
         public double Height { get; set; }
 
         public double Weight { get; set; }
+
+        public bool HasOwner { get; set; }
 
     }
 }

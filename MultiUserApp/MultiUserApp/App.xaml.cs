@@ -6,29 +6,26 @@ using Amazon;
 using Amazon.CognitoIdentity;
 using Xamarin.Forms;
 
+using MultiUserApp.Models;
+using MultiUserApp.Utils;
+using MultiUserApp.ViewModels;
+
+
 namespace MultiUserApp
 {
 	public partial class App : Application
 	{
         CognitoAWSCredentials credentials = new CognitoAWSCredentials(
-            Constants.CognitoIdentityPoolId, // Identity pool ID
-            RegionEndpoint.USWest2 // Region
+            Constants.COGNITO_IDENTITY_POOL_ID, // Identity pool ID
+            Constants.COGNITO_REGION // Region
         );
+        public static User User { get; set; }
+        public static HorseProfileManager HorseManager { get; private set; }
 
         public App ()
 		{
-			InitializeComponent();
-            // Initialize the Cognito Sync client
-            //CognitoSyncManager syncManager = new CognitoSyncManager(credentials,
-            //    new AmazonCognitoSyncConfig{
-            //        RegionEndpoint = RegionEndpoint.USWest2 // Region
-            //    }
-            //);
-            //// Create a record in a dataset and synchronize with the server
-            //Dataset dataset = syncManager.OpenOrCreateDataset("myDataset");
-            //dataset.OnSyncSuccess += SyncSuccessCallback;
-            //dataset.Put("myKey", "myValue");
-            //dataset.SynchronizeAsync();
+            HorseManager = new HorseProfileManager(new SimpleDBStorage());
+            User = new User();
 
             MainPage = new MultiUserApp.MainPage();
 		}

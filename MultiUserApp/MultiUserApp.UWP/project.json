@@ -1,10 +1,12 @@
 ﻿{
   "dependencies": {
     "AWSSDK.CognitoIdentity": "3.3.2.13",
+    "AWSSDK.Core": "3.3.17.2",
     "AWSSDK.SimpleDB": "3.3.0.20",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
     "Newtonsoft.Json": "10.0.3",
-    "Xamarin.Forms": "2.3.4.224"
+    "Xamarin.Auth": "1.5.0.3",
+    "Xamarin.Forms": "2.3.4.247"
   },
   "frameworks": {
     "uap10.0": {}

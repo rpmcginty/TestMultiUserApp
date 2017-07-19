@@ -8,6 +8,7 @@ using Amazon.CognitoIdentity;
 using Amazon.SimpleDB;
 using Amazon.SimpleDB.Model;
 using MultiUserApp.Models;
+using MultiUserApp.Utils;
 
 namespace MultiUserApp.ViewModels
 {
@@ -21,10 +22,10 @@ namespace MultiUserApp.ViewModels
         public SimpleDBStorage()
         {
             var credentials = new CognitoAWSCredentials(
-                                  Constants.CognitoIdentityPoolId,
-                                  RegionEndpoint.USEast1);
+                                  Constants.COGNITO_IDENTITY_POOL_ID,
+                                  Constants.COGNITO_REGION);
             var config = new AmazonSimpleDBConfig();
-            config.RegionEndpoint = RegionEndpoint.USWest2;
+            config.RegionEndpoint = Constants.SIMPLEDB_REGION;
             client = new AmazonSimpleDBClient(credentials, config);
 
             Items = new List<Horse>();
@@ -100,17 +101,18 @@ namespace MultiUserApp.ViewModels
             };
         }
 
-        public Task<List<Horse>> RefreshDataAsync()
+        public async Task<List<Horse>> RefreshDataAsync()
+        {
+            throw new NotImplementedException();
+
+        }
+
+        public async Task SaveTodoItemAsync(Horse item)
         {
             throw new NotImplementedException();
         }
 
-        public Task SaveTodoItemAsync(Horse item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteTodoItemAsync(Horse id)
+        public async Task DeleteTodoItemAsync(Horse id)
         {
             throw new NotImplementedException();
         }

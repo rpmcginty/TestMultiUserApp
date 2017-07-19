@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace MultiUserApp.ViewModels
 {
-
     public class HorseProfileManager
     {
         ISimpleDBStorage storage;
